@@ -91,7 +91,9 @@ class SignInPage extends StatelessWidget {
               ),
               ButtonPrimary(
                 title: 'Sign Up',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, '/home');
+                },
                 marginTop: 30,
               ),
               const Spacer(),

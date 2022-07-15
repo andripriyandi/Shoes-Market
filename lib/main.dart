@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shamo/pages/auth/sign_in_page.dart';
 import 'package:shamo/pages/auth/sign_up_page.dart';
+import 'package:shamo/pages/main_page.dart';
 import 'package:shamo/pages/splash_page.dart';
 
 void main() {
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
             '/': (context) => const SignInPage(),
             '/sign-in': (context) => const SignInPage(),
             '/sign-up': (context) => const SignUpPage(),
+            '/home': (context) => const MainPage()
           },
         );
       },
