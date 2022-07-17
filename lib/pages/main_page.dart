@@ -43,7 +43,7 @@ class _MainPageState extends State<MainPage> {
             type: BottomNavigationBarType.fixed,
             currentIndex: currentIndex,
             onTap: (value) {
-              print(value);
+              debugPrint('$value');
               setState(() {
                 currentIndex = value;
               });
@@ -136,7 +136,7 @@ class _MainPageState extends State<MainPage> {
     }
 
     return Scaffold(
-      backgroundColor: backgroundColor1,
+      backgroundColor: currentIndex == 0 ? backgroundColor1 : backgroundColor3,
       floatingActionButton: cardButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: customBottomNav(),
