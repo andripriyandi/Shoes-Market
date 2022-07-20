@@ -86,10 +86,84 @@ class CartPage extends StatelessWidget {
       );
     }
 
+    Widget customBottomNav() {
+      return Container(
+        margin: EdgeInsets.zero,
+        height: 180.h,
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: defaultMargin,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Subtotal',
+                    style: primaryTextStyle,
+                  ),
+                  Text(
+                    '\$287,12',
+                    style: priceTextStyle.copyWith(
+                      fontSize: 16.sp,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30),
+              child: Divider(
+                thickness: 0.3,
+                color: subtitleColor,
+              ),
+            ),
+            Container(
+              height: 50.h,
+              margin: EdgeInsets.symmetric(
+                horizontal: defaultMargin,
+              ),
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                    backgroundColor: primaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                    )),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Continue to Checkout',
+                        style: primaryTextStyle.copyWith(
+                          fontSize: 16.sp,
+                          fontWeight: semiBold,
+                        ),
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward,
+                      color: primaryTextColor,
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: backgroundColor3,
       appBar: header(),
       body: content(),
+      bottomNavigationBar: customBottomNav(),
     );
   }
 }
