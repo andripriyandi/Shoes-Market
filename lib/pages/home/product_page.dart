@@ -19,6 +19,18 @@ class _ProductPageState extends State<ProductPage> {
     'assets/images/image_shoes.png',
   ];
 
+  List familiarShoes = [
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+  ];
+
   int currentIndex = 0;
 
   @override
@@ -33,6 +45,22 @@ class _ProductPageState extends State<ProductPage> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: currentIndex == index ? primaryColor : const Color(0xffC4C4C4),
+        ),
+      );
+    }
+
+    Widget familiarShoesCard(String imageUrl) {
+      return Container(
+        width: 54.w,
+        height: 54.h,
+        margin: const EdgeInsets.only(
+          right: 16,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(6),
+          image: DecorationImage(
+            image: AssetImage(imageUrl),
+          ),
         ),
       );
     }
@@ -101,6 +129,8 @@ class _ProductPageState extends State<ProductPage> {
     }
 
     Widget content() {
+      int index = -1;
+
       return Container(
         width: double.infinity,
         margin: const EdgeInsets.only(top: 17),
@@ -212,6 +242,89 @@ class _ProductPageState extends State<ProductPage> {
             ),
 
             // NOTE: FAMILIAR SHOES
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(top: defaultMargin),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: defaultMargin,
+                    ),
+                    child: Text(
+                      'Familiar Shoes',
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: familiarShoes.map(
+                        (image) {
+                          index++;
+                          return Container(
+                            margin: EdgeInsets.only(
+                              left: index == 0 ? defaultMargin : 0,
+                            ),
+                            child: familiarShoesCard(image),
+                          );
+                        },
+                      ).toList(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            /// NOTE: BUTTON
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.all(defaultMargin),
+              child: Row(
+                children: [
+                  Container(
+                    width: 54.w,
+                    height: 54.w,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/button/button_chat.png'),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.zero,
+                      height: 54.w,
+                      child: TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          backgroundColor: primaryColor,
+                        ),
+                        child: Text(
+                          'Add to Cart',
+                          style: primaryTextStyle.copyWith(
+                            fontSize: 16.sp,
+                            fontWeight: semiBold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       );
