@@ -5,6 +5,7 @@ import 'package:shamo/pages/auth/sign_up_page.dart';
 import 'package:shamo/pages/cart/cart_page.dart';
 import 'package:shamo/pages/chat/detail_chat_page.dart';
 import 'package:shamo/pages/checkout/checkout_page.dart';
+import 'package:shamo/pages/checkout/checkout_success_page.dart';
 import 'package:shamo/pages/home/product_page.dart';
 import 'package:shamo/pages/main_page.dart';
 import 'package:shamo/pages/profile/edit_profile_page.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
             '/product': (context) => const ProductPage(),
             '/cart': (context) => const CartPage(),
             '/checkout': (context) => const CheckoutPage(),
+            '/checkout-success': (context) => const CheckoutSuccessPage(),
           },
         );
       },
